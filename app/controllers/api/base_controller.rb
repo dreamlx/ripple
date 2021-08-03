@@ -8,7 +8,7 @@ class Api::BaseController < ApplicationController
   attr_accessor :current_user
   
   def api_error(opts = {})
-    render nothing: true, status: opts[:status]
+    render body: nil, status: opts[:status]
   end
 
   def destroy_session

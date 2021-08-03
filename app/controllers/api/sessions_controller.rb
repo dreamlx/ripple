@@ -5,7 +5,7 @@ class Api::SessionsController < Api::BaseController
 
     if user && user.authenticate(params[:password])
       self.current_user = @user
-      render json: {token: user.authentication_token, nickname: user.nickname, name: user.name}
+      return render json: {token: user.authentication_token, nickname: user.nickname, name: user.name}
     else
       return api_error(status: 401)
     end

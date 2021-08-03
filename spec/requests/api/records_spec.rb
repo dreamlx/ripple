@@ -10,8 +10,8 @@ RSpec.describe "records" do
       project = create(:project)
       record = create(:record, user_id: user.id, date: Date.today, project_id: project.id, hour: 4, remark: "remark")
 
-      get "/api/records/list_with_month", {month: Date.today.strftime("%Y%M")}, valid_header
-      expect(response).to be_success
+      get "/api/records/list_with_month", params: {month: Date.today.strftime("%Y%M")}, headers: valid_header
+      expect(response).to be_successful
       expect(response).to have_http_status(200)
       json = JSON.parse(response.body)["list"]
 
@@ -30,8 +30,8 @@ RSpec.describe "records" do
       project = create(:project)
       record = create(:record, user_id: user.id, date: Date.today, project_id: project.id)
 
-      get "/api/records/list_with_month", {month: Date.today.strftime("%Y%M").succ}, valid_header
-      expect(response).to be_success
+      get "/api/records/list_with_month", params: {month: Date.today.strftime("%Y%M").succ}, headers: valid_header
+      expect(response).to be_successful
       expect(response).to have_http_status(200)
       json = JSON.parse(response.body)["list"]
 
@@ -46,8 +46,8 @@ RSpec.describe "records" do
       project = create(:project)
       record = create(:record, user_id: user.id, date: Date.today, project_id: project.id)
 
-      get "/api/records/list_with_month", {}, valid_header
-      expect(response).to be_success
+      get "/api/records/list_with_month", headers: valid_header
+      expect(response).to be_successful
       expect(response).to have_http_status(200)
       json = JSON.parse(response.body)["list"]
 
@@ -66,8 +66,8 @@ RSpec.describe "records" do
       }
 
       project = create(:project)
-      post "/api/records", {records: {"0" => {project_id: project.id, hour: 6, remark: "remark"}}, date: Date.today}, valid_header
-      expect(response).to be_success
+      post "/api/records", params: {records: {"0" => {project_id: project.id, hour: 6, remark: "remark"}}, date: Date.today}, headers: valid_header
+      expect(response).to be_successful
       expect(response).to have_http_status(201)
       json = JSON.parse(response.body)
       expect(Record.count).to eq 1
@@ -83,8 +83,8 @@ RSpec.describe "records" do
         authorization: ActionController::HttpAuthentication::Token.encode_credentials("#{user.authentication_token},nickname=#{user.nickname}")
       }
 
-      post "/api/records", {date: Date.today}, valid_header
-      expect(response).not_to be_success
+      post "/api/records", params: {date: Date.today}, headers: valid_header
+      expect(response).not_to be_successful
       expect(response).to have_http_status(422)
       json = JSON.parse(response.body)
       expect(json["message"]).to eq "项目id为空"

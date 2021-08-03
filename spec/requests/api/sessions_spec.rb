@@ -4,8 +4,8 @@ RSpec.describe "sessions" do
   describe "POST #create" do
     it "login with nickname and password" do
       user = create(:user)
-      post "/api/login", {nickname: user.nickname, password: user.password}
-      expect(response).to be_success
+      post "/api/login", params: {nickname: user.nickname, password: user.password}
+      expect(response).to be_successful
       expect(response).to have_http_status(200)
       json = JSON.parse(response.body)
       expect(json["name"]).to eq user.name
@@ -16,8 +16,8 @@ RSpec.describe "sessions" do
 
     it "failed to login with wrong password" do
       user = create(:user)
-      post "/api/login", {nickname: user.nickname, password: "wrong password"}
-      expect(response).not_to be_success
+      post "/api/login", params: {nickname: user.nickname, password: "wrong password"}
+      expect(response).not_to be_successful
       expect(response).to have_http_status(401)
     end
   end

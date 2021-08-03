@@ -5,7 +5,7 @@ RSpec.describe "projects" do
     it "get all projects" do
       project = create(:project)
       get "/api/projects"
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(response).to have_http_status(200)
       json = JSON.parse(response.body)
       expect(json.count).to eq 1
