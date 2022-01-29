@@ -10,7 +10,7 @@ RSpec.describe "records" do
       project = create(:project)
       record = create(:record, user_id: user.id, date: Date.today, project_id: project.id, hour: 4, remark: "remark")
 
-      get "/api/records/list_with_month", params: {month: Date.today.strftime("%Y%M")}, headers: valid_header
+      get "/api/records/list_with_month", params: {month: Date.today.strftime("%Y%m")}, headers: valid_header
       expect(response).to be_successful
       expect(response).to have_http_status(200)
       json = JSON.parse(response.body)["list"]
@@ -30,7 +30,7 @@ RSpec.describe "records" do
       project = create(:project)
       record = create(:record, user_id: user.id, date: Date.today, project_id: project.id)
 
-      get "/api/records/list_with_month", params: {month: Date.today.strftime("%Y%M").succ}, headers: valid_header
+      get "/api/records/list_with_month", params: {month: Date.today.strftime("%Y%m").succ}, headers: valid_header
       expect(response).to be_successful
       expect(response).to have_http_status(200)
       json = JSON.parse(response.body)["list"]
