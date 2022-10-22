@@ -58,7 +58,3 @@ gem 'caxlsx_rails'
 gem 'puma'
 gem 'bootsnap'
 gem 'listen'
-# fix ruby 3.1 bug
-gem 'net-smtp', require: false
-gem 'net-imap', require: false
-gem 'net-pop', require: false
