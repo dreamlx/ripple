@@ -9,7 +9,8 @@ Bundler.require(*Rails.groups)
 module Ripple
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.0
+    # config.load_defaults 5.0
+    config.active_record.legacy_connection_handling = false
 
     # Configuration for the application, engines, and railties goes here.
     #

@@ -11,7 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2022_05_29_154442) do
-  create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
+  create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_29_154442) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "utf8", force: :cascade do |t|
+  create_table "active_storage_blobs", charset: "utf8mb4", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -33,33 +33,33 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_29_154442) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", charset: "utf8", force: :cascade do |t|
+  create_table "active_storage_variant_records", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "admins", id: :integer, charset: "utf8", force: :cascade do |t|
+  create_table "admins", id: :integer, charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
   end
 
-  create_table "homes", id: :integer, charset: "utf8", force: :cascade do |t|
+  create_table "homes", id: :integer, charset: "utf8mb4", force: :cascade do |t|
     t.date "date"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
   end
 
-  create_table "projects", id: :integer, charset: "utf8", force: :cascade do |t|
+  create_table "projects", id: :integer, charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.text "desc"
     t.datetime "created_at", precision: nil, null: false
     t.datetime "updated_at", precision: nil, null: false
   end
 
-  create_table "records", id: :integer, charset: "utf8", force: :cascade do |t|
+  create_table "records", id: :integer, charset: "utf8mb4", force: :cascade do |t|
     t.integer "user_id"
     t.date "date"
     t.integer "project_id"
@@ -71,7 +71,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_29_154442) do
     t.index ["user_id"], name: "index_records_on_user_id"
   end
 
-  create_table "users", id: :integer, charset: "utf8", force: :cascade do |t|
+  create_table "users", id: :integer, charset: "utf8mb4", force: :cascade do |t|
     t.string "nickname"
     t.string "name"
     t.string "password_digest"
