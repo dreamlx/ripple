@@ -113,7 +113,7 @@ GEM
     crass (1.0.6)
     date (3.3.3)
     diff-lcs (1.5.0)
-    erubi (1.11.0)
+    erubi (1.12.0)
     execjs (2.8.1)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -147,11 +147,11 @@ GEM
     marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.0)
+    mini_portile2 (2.8.1)
     minitest (5.16.3)
     msgpack (1.6.0)
     mysql2 (0.5.4)
-    net-imap (0.3.3)
+    net-imap (0.3.4)
       date
       net-protocol
     net-pop (0.1.2)
@@ -171,7 +171,7 @@ GEM
       stringio
     puma (6.0.1)
       nio4r (~> 2.0)
-    racc (1.6.1)
+    racc (1.6.2)
     rack (2.2.4)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
@@ -278,7 +278,7 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
-  ruby
+  x86_64-linux
 
 DEPENDENCIES
   bcrypt
@@ -309,4 +309,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   2.3.26
+   2.4.1
